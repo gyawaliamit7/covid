@@ -1,0 +1,25 @@
+.container {
+    text-align: flex-start;
+    margin-left: 10px;
+    margin-top: 10px;
+    align-content: center;
+    font-size: x-large;
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+.title {
+    color:darkred;
+    text-shadow: black;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+.sub-title {
+    color:darkred;
+    font-weight: 300;
+    text-shadow: black;
+    font-size: xx-large;
+}

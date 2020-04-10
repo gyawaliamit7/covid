@@ -1,0 +1,29 @@
+.container {
+    width: 1200px;
+    height: 1000px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: white;
+    color: wheat    ;
+  }
+
+  .side-content {
+      width: 300px;
+  }
+
+  .button {
+      width: 250px;
+      height: 100px;
+      color:darkblue;
+      background-color: lightsalmon;
+  }
+
+  .button:hover  {
+    padding-right: 25px;
+    background-color:lightblue;
+  }
+
+  .button:active {
+    background-color:lightblue;
+    padding-right: 25px;
+  }
