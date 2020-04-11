@@ -1,15 +1,101 @@
+import { getTimeline } from './../map-data';
+import { StateInfoService } from './../state-info.service';
 import { Component, OnInit } from '@angular/core';
+import { State } from '../state';
+
+export class Categories  {
+  category: Label[];
+  constructor() {
+    this.category = [];
+  }
+}
+
+export class Label {
+  label: any;
+}
+
+export class DataSet {
+  data: Value[];
+  constructor() {
+    this.data = [];
+  }
+}
+
+export class Value {
+  value: any;
+}
 
 @Component({
   selector: 'app-death-graph',
   templateUrl: './death-graph.component.html',
   styleUrls: ['./death-graph.component.css']
 })
-export class DeathGraphComponent implements OnInit {
+export class DeathGraphComponent implements OnInit  {
 
-  constructor() { }
+  timelineDetail: any[] = [];
+  timelineList: State[] = [];
+  categories: Categories[] = [];
+  dataset: DataSet[] = [];
 
+  dataSource: any;
+
+
+  constructor(private stateInfo: StateInfoService) {
+    this.categories[0] = new Categories();
+    this.dataset[0] = new DataSet();
+    this.stateInfo.getTimeDetail();
+    this.dataSource = {
+      chart: {
+        caption: 'DEATH DUE TO COVID 19 IN MINNESOTA',
+        subCaption: '2020',
+        refreshinterval: '3',
+        numdisplaysets: '10',
+        theme: 'fusion',
+        drawAnchors: '0',
+        plotToolText: '$label: $dataValue Death',
+        showRealTimeValue: '0',
+        labelDisplay: 'rotate'
+        },
+        categories: this.categories,
+        dataset: this.dataset,
+        };
+
+    }
   ngOnInit() {
+    this.getInfo();
+    this.getTimeLine();
+    this.publishInfo();
+  }
+
+  getDetail() {
+    if (this.timelineList.length === 0) {
+      this.getInfo();
+      this.getTimeLine();
+      this.publishInfo();
+    }
+  }
+
+  getInfo() {
+    this.timelineDetail = this.stateInfo.timeDetailInfo;
+  }
+  getTimeLine() {
+    this.timelineList = getTimeline(this.timelineDetail);
+
+  }
+  publishInfo() {
+    this.timelineList.forEach(info => {
+      const tempCat = new Label();
+      tempCat.label = info.date;
+      if (tempCat.label !== 'date') {
+        this.categories[0].category.push(tempCat);
+      }
+      const tempData = new Value();
+      tempData.value = info.newDeath;
+      if (tempData.value !== 'new_statewide_deaths') {
+        this.dataset[0].data.push(tempData);
+      }
+   });
+
   }
 
 }
