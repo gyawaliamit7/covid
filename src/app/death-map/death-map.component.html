@@ -1,7 +1,8 @@
 <div class = "container">
-    <button class = "button" (click) = 'getDetail()'>GET DETAILS</button>
-    <fusioncharts width="900" height="600" type="minnesota" [dataSource]="dataSource">
+    <button mat-flat-button color="primary" class ="button" (click) = 'getDetail()'>GET DETAILS</button>
+    <fusioncharts width="900"  height="600" type="minnesota" [dataSource]="dataSource">
     </fusioncharts>
+   
 
     <p>Total Number of Death Reported in Minnesota: {{totalDeath}}</p>
 </div>

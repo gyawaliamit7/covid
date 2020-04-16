@@ -13,7 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
-
+import { MatToolbarModule, MatIconModule } from '@angular/material';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -65,6 +65,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionMaps, FusionTheme, Minneso
     MatDividerModule,
     MatButtonModule,
     MatListModule,
+    MatToolbarModule,
+    MatIconModule,
     RouterModule.forRoot(
       appRoutes
     )

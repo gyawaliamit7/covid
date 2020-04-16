@@ -8,12 +8,12 @@
   }
 
   .button {
-    margin-left: 40%;
+    margin-left: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     align-content: center;
     width: 250px;
     height: 50px;
-    color:darkblue;
-    font-size: xx-large;
     
-    background-color: lightcyan;
+    
 }

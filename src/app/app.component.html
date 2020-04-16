@@ -1,23 +1,25 @@
-<div class="container">
-<mat-drawer-container >
-    <mat-drawer mode="side" class = "side-content" opened role ="navigation" > 
-        <mat-nav-list>
-            <a class = "button" mat-list-item routerLink= '/'>Home</a>
-        </mat-nav-list>
-        <mat-nav-list>
-            <a class = "button" mat-list-item routerLink= '/cases_map'>Cases Map</a>
-        </mat-nav-list>
-        <mat-nav-list>
-            <a class = "button" mat-list-item routerLink= '/cases_graph'>Cases Graph</a>
-        </mat-nav-list> <mat-nav-list>
-            <a class = "button" mat-list-item routerLink= '/death_map'>Death Map</a>
-        </mat-nav-list> <mat-nav-list>
-            <a class = "button" mat-list-item routerLink= '/death_graph'>Death Graph</a>
-        </mat-nav-list>   
-    </mat-drawer>
 
-    <mat-drawer-content>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>MENU</h1>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav  role ="navigation" > 
+        <mat-nav-list>
+            <a  mat-list-item routerLink= '/'>Home</a>
+            <a  mat-list-item routerLink= '/cases_map'>Cases Map</a>
+            <a  mat-list-item routerLink= '/cases_graph'>Cases Graph</a>
+            <a  mat-list-item routerLink= '/death_map'>Death Map</a>
+            <a  mat-list-item routerLink= '/death_graph'>Death Graph</a>
+        </mat-nav-list>   
+    </mat-sidenav>
+
+    <mat-sidenav-content>
        <router-outlet></router-outlet>
-    </mat-drawer-content>
-  </mat-drawer-container>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
